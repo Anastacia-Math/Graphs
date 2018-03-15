@@ -21,6 +21,15 @@ public class Coords {
         dekart_heigth = bigEllipsoid*Math.log(Math.tan(Math.PI/4+wigth/2)*
                 Math.pow(((1-excentricitet*Math.sin(wigth))/(1+excentricitet*Math.sin(wigth))),excentricitet/2));
     }
+    public double getWigth(){
+        return wigth;
+    }
+
+    public double getHeight(){
+        return height;
+    }
+
+
 
     public double getDekart_width(){
 
@@ -28,6 +37,13 @@ public class Coords {
     }
     public double getDekart_heigth(){
         return dekart_heigth;
+    }
+
+    public void setDekart_width(double x){
+        dekart_width = x;
+    }
+    public void setDekart_heigth(double x){
+        dekart_heigth = x;
     }
 
 }
