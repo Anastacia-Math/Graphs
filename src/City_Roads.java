@@ -40,7 +40,12 @@ public class City_Roads {
                 List <Element> nd = el.getChildren("nd");
                 long st_point = Long.valueOf(nd.get(0).getAttributeValue("ref"));
                 Coords st_point_Coords = Vertices.get(st_point);
-                if (st_point_Coords == null) st_point_Coords = getLocation(st_point);
+                if (st_point_Coords == null)
+                    try{
+                    st_point_Coords = getLocation(st_point);
+                    }catch(StringIndexOutOfBoundsException e){
+                    continue;
+                    }
                 st_point_Coords.transfornCoordsToDekart();
                 double x = st_point_Coords.getDekart_width();
                 double y = st_point_Coords.getDekart_heigth();
@@ -58,7 +63,13 @@ public class City_Roads {
                 for (int i=1; i<nd.size(); i++){
                     fin =Long.valueOf(nd.get(i).getAttributeValue("ref"));
                     Coords fin_Coords = Vertices.get(fin);
-                    if (fin_Coords == null) fin_Coords = getLocation(fin);
+                    if (fin_Coords == null) {
+                        try {
+                            fin_Coords = getLocation(fin);
+                        } catch (StringIndexOutOfBoundsException e) {
+                            continue;
+                        }
+                    }
                     fin_Coords.transfornCoordsToDekart();
                     x = fin_Coords.getDekart_width();
                     y = fin_Coords.getDekart_heigth();
@@ -91,7 +102,7 @@ public class City_Roads {
 
     private void printVertices (Map <Long, Node> result){
 
-        try(FileWriter writer = new FileWriter("D:\\graphs\\vertices.csv", false))
+        try(FileWriter writer = new FileWriter("D:\\myGraphs\\vertices.csv", false))
         {
             writer.write("Vertices\n");
             Set<Long> ids = result.keySet();
@@ -176,7 +187,7 @@ public class City_Roads {
     }
 
 
-    public void run () {
+    public int run () {
         Map<Long, Coords> Vertices;
         Vertices = getVertices();
         List <Way> ways = getEdges(Vertices);
@@ -184,7 +195,7 @@ public class City_Roads {
 
 
 
-        try(FileWriter writer = new FileWriter("D:\\graphs\\edges.csv", false))
+        try(FileWriter writer = new FileWriter("D:\\myGraphs\\edges.csv", false))
         {
 
             writer.write("Starting point, Finish point\n");
@@ -204,6 +215,7 @@ public class City_Roads {
 
             System.out.println(ex.getMessage());
         }
+        return Vertices.keySet().size();
 
 
     }

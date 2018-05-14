@@ -8,7 +8,7 @@ public class Node {
     public Node (double _height, double _width){
         height = _height;
         width = _width;
-        id = ++count;
+        id = count++;
     }
 
 

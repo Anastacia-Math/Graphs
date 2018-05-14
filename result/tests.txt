@@ -1,0 +1,74 @@
+Dijkstra Results:
+Average: 0.03668000000000002
+Max time: 0.725
+Min time: 0.015
+Average time to drive to 0 restaurant 0.19948228512131586
+Average time to drive to 1 restaurant 0.2720164095389663
+Average time to drive to 2 restaurant 0.3585781847073771
+Average time to drive to 3 restaurant 0.22064494799358345
+Average time to drive to 4 restaurant 0.23287995106706577
+Average time to drive to 5 restaurant 0.23980524734756847
+Average time to drive to 6 restaurant 0.2561217192182985
+Average time to drive to 7 restaurant 0.23124022836085054
+Average time to drive to 8 restaurant 0.17974895555572284
+Average time to drive to 9 restaurant 0.36600489997475566
+--------------------------------------------------------------------------------------------
+ Levit Results:
+Average: 0.011189999999999999
+Max time: 0.094
+Min time: 0.0
+Average time to drive to 0 restaurant 0.19948228512131586
+Average time to drive to 1 restaurant 0.2720164095389663
+Average time to drive to 2 restaurant 0.3585781847073771
+Average time to drive to 3 restaurant 0.22064494799358345
+Average time to drive to 4 restaurant 0.23287995106706577
+Average time to drive to 5 restaurant 0.23980524734756847
+Average time to drive to 6 restaurant 0.2561217192182985
+Average time to drive to 7 restaurant 0.23124022836085054
+Average time to drive to 8 restaurant 0.17974895555572284
+Average time to drive to 9 restaurant 0.36600489997475566
+--------------------------------------------------------------------------------------------
+ A_star with Euclidian euristics Results:
+Average: 0.09173000000000002
+Max time: 0.5780000000000001
+Min time: 0.05000000000000001
+Average time to drive to 0 restaurant 0.19281291822757318
+Average time to drive to 1 restaurant 0.26941625198200325
+Average time to drive to 2 restaurant 0.33415307373032566
+Average time to drive to 3 restaurant 0.21397558109984088
+Average time to drive to 4 restaurant 0.22876902585715864
+Average time to drive to 5 restaurant 0.23569432213766053
+Average time to drive to 6 restaurant 0.2561217192182985
+Average time to drive to 7 restaurant 0.21906463890510275
+Average time to drive to 8 restaurant 0.18034134933336468
+Average time to drive to 9 restaurant 0.36447502867069764
+--------------------------------------------------------------------------------------------
+ A_star with Manhattan euristics Results:
+Average: 0.7241000000000001
+Max time: 1.6440000000000001
+Min time: 0.516
+Average time to drive to 0 restaurant 0.19281291822757318
+Average time to drive to 1 restaurant 0.26941625198200325
+Average time to drive to 2 restaurant 0.33415307373032566
+Average time to drive to 3 restaurant 0.21397558109984088
+Average time to drive to 4 restaurant 0.22876902585715864
+Average time to drive to 5 restaurant 0.23569432213766053
+Average time to drive to 6 restaurant 0.2561217192182985
+Average time to drive to 7 restaurant 0.21906463890510275
+Average time to drive to 8 restaurant 0.18034134933336468
+Average time to drive to 9 restaurant 0.36447502867069764
+--------------------------------------------------------------------------------------------
+ A_star with Chebyshov euristics Results:
+Average: 0.09165000000000002
+Max time: 0.22800000000000004
+Min time: 0.046
+Average time to drive to 0 restaurant 0.19281291822757318
+Average time to drive to 1 restaurant 0.26941625198200325
+Average time to drive to 2 restaurant 0.33415307373032566
+Average time to drive to 3 restaurant 0.21397558109984088
+Average time to drive to 4 restaurant 0.22876902585715864
+Average time to drive to 5 restaurant 0.23569432213766053
+Average time to drive to 6 restaurant 0.2561217192182985
+Average time to drive to 7 restaurant 0.21906463890510275
+Average time to drive to 8 restaurant 0.18034134933336468
+Average time to drive to 9 restaurant 0.36447502867069764
