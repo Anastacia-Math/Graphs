@@ -53,20 +53,20 @@ public class Visualisation {
         double xmax=-Double.MAX_VALUE, ymax=-Double.MAX_VALUE, xmean=0,ymean=0,ymin= Double.MAX_VALUE, xmin=Double.MAX_VALUE;
         for (String[] record:records) {
 
-                id.add(Long.valueOf(record[0]));
-                x.add(Double.valueOf(record[2]));
-                if (Double.valueOf(record[2]) >= xmax)
-                    xmax = Double.valueOf(record[2]);
-                if (Double.valueOf(record[2]) <= xmin)
-                    xmin = Double.valueOf(record[2]);
-                xmean += Double.valueOf(record[2]) / records.size();
-                y.add(Double.valueOf(record[3]));
+            id.add(Long.valueOf(record[0]));
+            x.add(Double.valueOf(record[2]));
+            if (Double.valueOf(record[2]) >= xmax)
+                xmax = Double.valueOf(record[2]);
+            if (Double.valueOf(record[2]) <= xmin)
+                xmin = Double.valueOf(record[2]);
+            xmean += Double.valueOf(record[2]) / records.size();
+            y.add(Double.valueOf(record[3]));
 
-                if (Double.valueOf(record[3]) >= ymax)
-                    ymax = Double.valueOf(record[3]);
-                if (Double.valueOf(record[3]) <= ymin)
-                    ymin = Double.valueOf(record[3]);
-                ymean += Double.valueOf(record[3]) / records.size();
+            if (Double.valueOf(record[3]) >= ymax)
+                ymax = Double.valueOf(record[3]);
+            if (Double.valueOf(record[3]) <= ymin)
+                ymin = Double.valueOf(record[3]);
+            ymean += Double.valueOf(record[3]) / records.size();
 
         }
 
@@ -220,9 +220,8 @@ public class Visualisation {
 
         writer.write("</svg>");
         writer.close();
-        }
+    }
 }
-
 
 
 

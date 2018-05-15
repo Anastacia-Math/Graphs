@@ -76,40 +76,64 @@ public class Main {
         restraunts.forEach((el)-> {
             restIDs.add(G.findNearestVertex(el));
         });
-        TestsForAlgorithms.test(G,restIDs);
+        //TestsForAlgorithms.test(G,);
+        System.out.println("Если вы хотите найти ближайший ресторан нажмите 1");
+        System.out.println("Если вы хотите увидеть решение задачи коммивояжера нажмите 2");
+        Scanner reader = new Scanner(System.in);
+        int choice = reader.nextInt();
+        if (choice==1) {
+            System.out.println("Введите широту:");
+            double x = reader.nextDouble();
+            System.out.println("Введите долготу:");
+            double y = reader.nextDouble();
+            Coords user = new Coords(x, y);
+            user.transfornCoordsToDekart();
+            int startPoint = G.findNearestVertex(user);
+            //int [] way = Algorithms.Dijkstra(G,startPoint);
 
-        /*Scanner reader = new Scanner(System.in);
-        System.out.println("Введите широту:");
-        double x = reader.nextDouble();
-        System.out.println("Введите долготу:");
-        double y = reader.nextDouble();
-        Coords user = new Coords(x,y);
-        user.transfornCoordsToDekart();
-        int startPoint = G.findNearestVertex(user);
-        //int [] way = Algorithms.Dijkstra(G,startPoint);
+
+            try (FileWriter writer = new FileWriter("D:\\myGraphs\\Ways.csv", false)) {
+                for (int el : restIDs) {
+                    int[] way = Algorithms.A_star(G, startPoint, el, 3);
+                    int i = el;
+                    double distance = 0;
+                    writer.write(String.valueOf(i));
+                    writer.append(",");
+                    while (way[i] != -1) {
+                        Coords st = G.getCoordById(i);
+                        Coords fin = G.getCoordById(way[i]);
+                        distance += Math.sqrt((st.getWigth() - fin.getWigth()) * (st.getWigth() - fin.getWigth()) + (st.getHeight() - fin.getHeight()) * (st.getHeight() - fin.getHeight()));
+                        i = way[i];
+                        writer.write(String.valueOf(i));
+                        writer.append(",");
+                    }
+                    writer.write(String.valueOf(i));
+                    writer.append(",");
+                    writer.write(String.valueOf(distance));
+                    writer.append("\n");
 
 
-        try(FileWriter writer = new FileWriter("D:\\myGraphs\\Ways.csv", false)){
-        for (int el:restIDs){
-            int [] way = Algorithms.A_star(G,startPoint,el,3);
-            int i = el;
-            double distance = 0;
-            writer.write(String.valueOf(i));
-            writer.append(",");
-            while(way[i]!=-1){
-                Coords st = G.getCoordById(i);
-                Coords fin = G.getCoordById(way[i]);
-                distance+=Math.sqrt((st.getWigth()-fin.getWigth())*(st.getWigth()-fin.getWigth())+(st.getHeight()-fin.getHeight())*(st.getHeight()-fin.getHeight()));
-                i = way[i];
-                writer.write(String.valueOf(i));
-                writer.append(",");
                 }
-                writer.write(String.valueOf(i));
-            writer.append(",");
-            writer.write(String.valueOf(distance));
-            writer.append("\n");
+            }
+        }
+        if (choice==2) {
+            try (FileWriter writer = new FileWriter("D:\\myGraphs\\ways.csv", false)) {
+                System.out.println("Введите широту:");
+                double x = reader.nextDouble();
+                System.out.println("Введите долготу:");
+                double y = reader.nextDouble();
+                Coords user = new Coords(x, y);
+                user.transfornCoordsToDekart();
+                int[][] resultWays = Kommivoyager.NearestNeighbour(G, restIDs, user);
+                for (int j = 0; j < resultWays.length; j++) {
+                    for (int i=0; i<resultWays[j].length; i++){
+                    writer.write(String.valueOf(resultWays[j][i]));
+                    writer.append(",");
 
-
+                    }
+                    writer.write(String.valueOf(11-j));
+                    writer.append("\n");
+                }
             }
         }
 
@@ -120,7 +144,7 @@ public class Main {
             e.printStackTrace();
         }
         graph = null;
-*/
+
 
 
     }
