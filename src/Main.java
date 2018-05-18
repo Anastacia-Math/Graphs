@@ -125,12 +125,14 @@ public class Main {
                 Coords user = new Coords(x, y);
                 user.transfornCoordsToDekart();
                 int[][] resultWays = Kommivoyager.NearestNeighbour(G, restIDs, user);
+               //int [][] resultWays = Kommivoyager.BranchNBoundMethod(G, restIDs, user);
                 for (int j = 0; j < resultWays.length; j++) {
                     for (int i=0; i<resultWays[j].length; i++){
                     writer.write(String.valueOf(resultWays[j][i]));
                     writer.append(",");
 
                     }
+
                     writer.write(String.valueOf(11-j));
                     writer.append("\n");
                 }

@@ -14,6 +14,7 @@ public class Visualisation {
     private static final String SAMPLE_CSV_FILE_PATH_VERTICES = "D:\\myGraphs\\vertices.csv";
     private static final String SAMPLE_CSV_FILE_PATH_EDGES = "D:\\myGraphs\\edges.csv";
     private static final String SAMPLE_CSV_FILE_PATH_DIGKSTRA_WAYS = "D:\\myGraphs\\Ways.csv";
+    private static final String out = "<line x1='%s' x2='%s' y1='%s' y2='%s' stroke='%s' style='stroke-width: %spx; stroke: %s;'/>";
 
 
     public void CSVtoSVG(Graph G) throws IOException {
@@ -123,6 +124,7 @@ public class Visualisation {
         CSVReader csvReader2 = new CSVReader(reader);
         List<String[]> ways = csvReader2.readAll();
         edges.remove(0);
+        String[] colors = {"red","green","yellow","pink","orange","purple","grey","brown","golden","coral","olive"};
         for (int i=0; i<edges.size();i++) {
             if (i % 2 == 0) {
                 long id1 = Long.valueOf(edges.get(i)[0]);
@@ -174,8 +176,7 @@ public class Visualisation {
                 y2*=height;
 
 
-                String line = "<line x1=" + "'" + String.format(String.valueOf(x1)) + "'" + " x2=" + "'" + String.format(String.valueOf(x2)) + "'" + " y1=" + "'" + String.format(String.valueOf(y1)) + "'" +
-                        " y2=" + "'" + String.format(String.valueOf(y2)) + "'" + " stroke='green' style='stroke-width: 0.3px; stroke: green;'/>";
+                String line = String.format(out,x1,x2,y1,y2,colors[j],"0,6",colors[j]);
                 writer.write(line);
                 writer.write('\n');
 
@@ -212,7 +213,7 @@ public class Visualisation {
 
 
             String line = "<line x1=" + "'" + String.format(String.valueOf(x1)) + "'" + " x2=" + "'" + String.format(String.valueOf(x2)) + "'" + " y1=" + "'" + String.format(String.valueOf(y1)) + "'" +
-                    " y2=" + "'" + String.format(String.valueOf(y2)) + "'" + " stroke='red' style='stroke-width: 0.3px; stroke: red;'/>";
+                    " y2=" + "'" + String.format(String.valueOf(y2)) + "'" + " stroke='red' style='stroke-width: 0.7px; stroke: red;'/>";
             writer.write(line);
             writer.write('\n');
         }
